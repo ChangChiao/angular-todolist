@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Todo } from './../types';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-plan',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./plan.component.scss']
 })
 export class PlanComponent {
-
+  @Input() data!: Todo[]
 }

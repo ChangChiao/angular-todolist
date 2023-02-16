@@ -1,1 +1,7 @@
-<p>index works!</p>
+<p class="text-blue-500 text-2xl">index works!</p>
+<app-header (onChangeItem)="onChangeItem($event)"></app-header>
+<app-plan [data]="plans"></app-plan>
+<app-done></app-done>
+<footer>
+  <button class="btn">clear all</button>
+</footer>
