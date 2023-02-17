@@ -1,1 +1,13 @@
-<p>done works!</p>
+<div class="p-4 border">
+    <ul>
+      <li class="flex" *ngFor="let item of data; index as i">
+          <div>
+            <span>{{ i + 1 }}. </span>
+            <span>{{ item.value }}</span>
+            <button (click)="onDelete(item)" class="btn">delete</button>
+          </div>
+      </li>
+    </ul>
+    <p>已完成的計畫， 共{{ data.length }}條</p>
+  </div>
+  

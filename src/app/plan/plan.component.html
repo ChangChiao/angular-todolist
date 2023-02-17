@@ -1,14 +1,21 @@
-<p>執行中的計畫， 共{{ data.length }}條</p>
-
-<ul class="">
-  <li class="flex" *ngFor="let item of data; index as i">
-    <ng-container *ngIf="!item.edit; else canEdit">
-        <span>{{ i + 1 }}</span>
-        <span>{{ item.value }}</span>
-        <button class="btn">delete</button>
-    </ng-container>
-    <ng-template #canEdit>
-        <input type="text">
-    </ng-template>
-  </li>
-</ul>
+<div class="p-4 border">
+  <ul>
+    <li class="flex" *ngFor="let item of data; index as i">
+      <ng-container *ngIf="!item.edit; else canEdit">
+        <div (click)="onEdit(item)">
+          <span>{{ i + 1 }} .</span>
+          <span>{{ item.value }}</span>
+          <button (click)="onDelete(item, $event)" class="btn">delete</button>
+        </div>
+      </ng-container>
+      <ng-template #canEdit>
+        <input
+          (keyup)="onEnter(item, $event)"
+          [(ngModel)]="item.value"
+          type="text"
+        />
+      </ng-template>
+    </li>
+  </ul>
+  <p>執行中的計畫， 共{{ data.length }}條</p>
+</div>
